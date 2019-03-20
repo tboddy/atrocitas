@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>atrocitas</title>
+	<style>
+		@font-face {font-family: 'dracena';src: url('aerotype_-_dracena-webfont.woff2') format('woff2'), url('aerotype_-_dracena-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
+		* {margin:0;padding:0;}
+		body, html {background-color:black;color:white;text-align:center;font-size:16px;font-family:monospace;text-transform:uppercase;}
+		a {color:white;}
+		a:hover {color:rgba(255,255,255,.5);}
+		h1 {font-size:80px;font-family:'dracena';text-align:center;font-weight:normal;margin-bottom:40px;}
+		h2 {font-size:24px;margin-bottom:20px;}
+		table {border-spacing:0;border-collapse:collapse;width:100%;border-bottom:1px solid white;}
+			tr {border-top:1px solid white;border-left:1px solid white;}
+			td, th {border-right:1px solid white;padding:10px 15px;}
+		.container {width:640px;margin:50px auto;text-align:left;}
+	</style>
+</head>
+<body>
+	<div class="container" id="template">
+		<h1>ATROCITAS</h1>
+		<h2>Tabs</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Download</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="tab in tabs">
+					<td>{{tab.title}}</td>
+					<td><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">Open</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		var template = new Vue({
+			el: '#template',
+			data: {
+				tabs: [
+					{title: 'Grand Order', filename: 'grandorder'},
+					{title: 'Dead Apostle', filename: 'deadapostle'}
+				]
+			}
+		});
+	</script>
+</body>
+</html>
