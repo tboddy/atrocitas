@@ -5,32 +5,46 @@
 	<style>
 		@font-face {font-family: 'dracena';src: url('aerotype_-_dracena-webfont.woff2') format('woff2'), url('aerotype_-_dracena-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
 		* {margin:0;padding:0;}
-		body, html {background-color:black;color:white;text-align:center;font-size:16px;font-family:monospace;text-transform:uppercase;}
+		body, html {background-color:black;color:white;text-align:center;font-size:14px;font-family:monospace;text-transform:uppercase;}
 		a {color:white;}
 		a:hover {color:rgba(255,255,255,.5);}
 		h1 {font-size:80px;font-family:'dracena';text-align:center;font-weight:normal;margin-bottom:40px;}
-		h2 {font-size:24px;margin-bottom:20px;}
-		table {border-spacing:0;border-collapse:collapse;width:100%;border-bottom:1px solid white;}
+		h2 {font-size:20px;margin-bottom:20px;}
+		table {border-spacing:0;border-collapse:collapse;width:100%;border-bottom:1px solid white;margin-bottom:40px;}
 			tr {border-top:1px solid white;border-left:1px solid white;}
 			td, th {border-right:1px solid white;padding:10px 15px;}
 		.container {width:640px;margin:50px auto;text-align:left;}
+		.littleCell {white-space:nowrap;width:1%;}
 	</style>
 </head>
 <body>
 	<div class="container" id="template">
 		<h1>ATROCITAS</h1>
-		<h2>Tabs</h2>
+		<h2>Songwriting Demos</h2>
 		<table>
 			<thead>
 				<tr>
-					<th>Title</th>
-					<th>Download</th>
+					<th colspan="2">Title</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="song in demos">
+					<td>{{song.title}}</td>
+					<td class="littleCell"><a :href="'mp3/' + song.filename + '.mp3'" target="_blank">Download</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Bass Tabs</h2>
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Title</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr v-for="tab in tabs">
 					<td>{{tab.title}}</td>
-					<td><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">Open</a></td>
+					<td class="littleCell"><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">Download</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -40,6 +54,9 @@
 		var template = new Vue({
 			el: '#template',
 			data: {
+				demos: [
+					{title: 'Dead Apostle', filename: 'deadapostle'}
+				],
 				tabs: [
 					{title: 'Grand Order', filename: 'grandorder'},
 					{title: 'Dead Apostle', filename: 'deadapostle'}
