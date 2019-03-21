@@ -22,11 +22,6 @@
 		<h1>ATROCITAS</h1>
 		<h2>Songwriting Demos</h2>
 		<table>
-			<thead>
-				<tr>
-					<th colspan="2">Title</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr v-for="song in demos">
 					<td>{{song.title}}</td>
@@ -36,15 +31,19 @@
 		</table>
 		<h2>Bass Tabs</h2>
 		<table>
-			<thead>
-				<tr>
-					<th colspan="2">Title</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr v-for="tab in tabs">
 					<td>{{tab.title}}</td>
-					<td class="littleCell"><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">Download</a></td>
+					<td class="littleCell"><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">View</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Lyrics</h2>
+		<table>
+			<tbody>
+				<tr v-for="lyric in lyrics">
+					<td>{{lyric.title}}</td>
+					<td class="littleCell"><a :href="'lyrics/' + lyric.filename + '.txt'" target="_blank">View</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -59,6 +58,9 @@
 				],
 				tabs: [
 					{title: 'Grand Order', filename: 'grandorder'},
+					{title: 'Dead Apostle', filename: 'deadapostle'}
+				],
+				lyrics: [
 					{title: 'Dead Apostle', filename: 'deadapostle'}
 				]
 			}
