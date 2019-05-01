@@ -15,6 +15,7 @@
 			td, th {border-right:1px solid white;padding:10px 15px;}
 		.container {width:640px;margin:50px auto;text-align:left;}
 		.littleCell {white-space:nowrap;width:1%;}
+		.retired {text-decoration:line-through;color:#aaa;}
 	</style>
 </head>
 <body>
@@ -32,7 +33,7 @@
 		<h2>Songwriting Demos</h2>
 		<table>
 			<tbody>
-				<tr v-for="song in demos">
+				<tr v-for="song in demos" :class="{retired: song.retired}">
 					<td>{{song.title}}</td>
 					<td class="littleCell"><a :href="'mp3/' + song.filename + '.mp3'" target="_blank">Download</a></td>
 				</tr>
@@ -41,7 +42,7 @@
 		<h2>Bass Tabs</h2>
 		<table>
 			<tbody>
-				<tr v-for="tab in tabs">
+				<tr v-for="tab in tabs" :class="{retired: tab.retired}">
 					<td>{{tab.title}}</td>
 					<td class="littleCell"><a :href="'tabs/' + tab.filename + '.txt'" target="_blank">View</a></td>
 				</tr>
@@ -50,7 +51,7 @@
 		<h2>Lyrics</h2>
 		<table>
 			<tbody>
-				<tr v-for="lyric in lyrics">
+				<tr v-for="lyric in lyrics" :class="{retired: lyric.retired}">
 					<td>{{lyric.title}}</td>
 					<td class="littleCell"><a :href="'lyrics/' + lyric.filename + '.txt'" target="_blank">View</a></td>
 				</tr>
@@ -66,14 +67,15 @@
 					{title: '040619', filename: 'reh040619'}
 				],
 				demos: [
-					{title: 'Dead Apostle', filename: 'deadapostle'}
+					{title: 'Dead Apostle', filename: 'deadapostle', retired: true}
 				],
 				tabs: [
+					{title: 'Chang\'e/Whereabouts (Working Title)', filename: 'whereabouts'},
 					{title: 'Grand Order', filename: 'grandorder'},
-					{title: 'Dead Apostle', filename: 'deadapostle'}
+					{title: 'Dead Apostle', filename: 'deadapostle', retired: true}
 				],
 				lyrics: [
-					{title: 'Dead Apostle', filename: 'deadapostle'}
+					{title: 'Dead Apostle', filename: 'deadapostle', retired: true}
 				]
 			}
 		});
